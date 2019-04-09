@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ 
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script  src="https://code.jquery.com/jquery-2.2.4.min.js"  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="estilo.css">
+</head>
+<body>
+    
+    <div class="container-fluid" style="margin: 0px">
+       
+        <h2 align="center"> <a href="index.html">Cifra de Cesar</a>    </h2>
+        <h5 align="center"> <a href="vegenre.html">Cifra de Vegenere</a>    </h5>
+    
+       <br>
+       <br>
+      <div class="box">
+          <h4 align="center">Cesar</h4>
+            <label for="frase">Digite a frase</label> <br>
+            <input id="frase" style="width:500px" type="text" placeholder="digite a frase">
+            <br>
+            <br>
+            <label for="des">deslocamento</label><br>
+            <input id="des" type="number" placeholder="descolamento">
+            <br>
+            <br>
+            <button class="btn btn-success" id="cod">Codificar</button>
+            <button class="btn btn-primary" id="dec">decodificar</button>
+      </div>
+       <br>
+       <br>
+       <div class="box">
+           <h2 align="center" class="pronto"></h2>
+       </div>
+       
+    </div>
+
+    <script>
+        var frase = "";
+
+
+        $('#cod').on('click',function(){
+          frase = $('#frase').val().toLowerCase();;
+          var off = $('#des').val();
+         
+          var x = parseInt(off);
+            codificar(frase, x)
+            
+
+        })
+
+        $('#dec').on('click',function(){
+          frase = $('#frase').val().toLowerCase();;
+          var off = $('#des').val();
+         
+          var x = parseInt(off);
+            decodificar(frase, x)
+            
+
+        })
+
+        function codificar(frase, x){
+    
+              var alfa = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+              var keep = [];
+
+
+            for (var i = 0; i < frase.length; i++)
+            {
+                if(frase[i] != ' ')
+                {
+                for (var j = 0; j < alfa.length; j++)
+                {
+                    if (frase[i] == alfa[j])
+                    {
+                    keep[i] = alfa[(j + x) % alfa.length];
+                    break;
+                    }
+                }
+                }
+                else
+                {
+                keep[i] = ' ';
+                }
+            }
+
+            $(".pronto").text(keep.join(""))
+            console.log(keep.join(""))
+        }
+
+        function decodificar(frase, x){
+                
+            var alfa = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+              var keep = [];
+
+
+            for (var i = 0; i < frase.length; i++)
+            {
+                if(frase[i] != ' ')
+                {
+                for (var j = 0; j < alfa.length; j++)
+                {
+                    if (frase[i] == alfa[j])
+                    {
+                    keep[i] = alfa[(j - x) % alfa.length];
+                    break;
+                    }
+                }
+                }
+                else
+                {
+                keep[i] = ' ';
+                }
+            }
+
+            $(".pronto").text(keep.join(""))
+            console.log(keep.join(""))
+        }
+
+    </script>
+
+</body>
+</html>
