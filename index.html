@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Cifra Cesar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
 
@@ -46,7 +46,9 @@
        </div>
        
     </div>
-
+<p>Hélio Harada 559687  </p>
+<p>gulherme Falco 557277</p>
+<p>Leonardo molina 559997</p>
     <script>
         var frase = "";
 
@@ -112,9 +114,31 @@
                 {
                 for (var j = 0; j < alfa.length; j++)
                 {
+                    if(x > 26)
+                    {
+                        x = x % 26;
+                    }
+
                     if (frase[i] == alfa[j])
                     {
-                    keep[i] = alfa[(j - x) % alfa.length];
+                        // console.log(alfa[(j - x) % alfa.length])
+                        console.log(j, x)
+                       if(j == 0)
+                       {
+                            j = 26;
+                            // console.log("zero")
+                       }
+                       if((j -x )< 0){
+                           var t = (j -x )+26;
+
+                           keep[i] = alfa[t];
+                        console.log(alfa[t])
+                       }else{
+                        keep[i] = alfa[(j - x) % alfa.length];
+                       }
+                     
+                        // console.log(2 % alfa.length)
+              
                     break;
                     }
                 }
@@ -126,7 +150,7 @@
             }
 
             $(".pronto").text(keep.join(""))
-            console.log(keep.join(""))
+            // console.log(keep.join(""))
         }
 
     </script>
