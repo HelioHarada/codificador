@@ -1,7 +1,25 @@
+body{
+    height: 900px;
+    background-color: #0E163B;
+}
+
+input{
+    margin-top:25px;
+    display: block;
+    width: 100%;
+    height: 45px;
+    border-radius: 25px;
+    border: 0;
+    color: #1a212f;
+    background: #ccc;
+    transition: .3s ease;
+    padding: 20px;
+    
+}
 a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .menu{
@@ -9,8 +27,20 @@ a:hover, a:visited, a:link, a:active
 
 }
 
-h2{
-    color: black
+.line{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+
+}
+
+.line h5, span{
+    margin-left: 5px;
+}
+
+h2,a,p,h4,label,span{
+    color: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .box{
@@ -19,6 +49,6 @@ h2{
     width: 600px;
     border: 1px solid #ccc;
     border-radius: 25px;
-    box-shadow: 3px 5px 10px black;
+    box-shadow: 1px 2px 8px black;
 
 }
